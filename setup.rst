@@ -12,6 +12,38 @@ Prerequisites:
 
 - PostgreSQL 9.4
 
+Pre-Setup for Mac
++++++++++++++
+
+Using `Homebrew <https://brew.sh/>`_ is one approach you can take to install Python 2.7 on a Mac. There are instructions on how to install Homebrew on the `Homebrew website <https://brew.sh/>`_. Also, Homebrew provides some `documentation <https://docs.brew.sh/Homebrew-and-Python>`_ about how it manages Python on your machine.
+
+The command used to install Python 2.7 with Homebrew for this documentation::
+
+  brew install python@2
+
+You may run into some trouble installing Python 2.7 with Homebrew. If you get an error that looks like::
+
+  Linking /usr/local/Cellar/python@2/2.7.15... Error: Permission denied @ dir_s_mkdir - /usr/local/Frameworks
+
+Try running the following commands to fix it::
+
+  sudo mkdir /usr/local/Frameworks
+  sudo chown $(whoami):admin /usr/local/Frameworks
+
+Also, after installing Python 2.7 with Homebrew, run the following::
+
+  brew postinstall python@2
+
+The **postinstall** command should ensure you have the correct version of pip installed.
+
+Now, run::
+
+  pip install virtualenv
+
+
+Setup
++++++++++++++
+
 Go into the repo root and
 
   ``virtualenv-2.7 venv`` or ``virtualenv venv``
